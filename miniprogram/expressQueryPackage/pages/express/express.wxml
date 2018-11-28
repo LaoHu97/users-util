@@ -1,0 +1,10 @@
+<view>
+  <view class="top_view">
+    <van-button round size="small">快递选择：自动</van-button>
+    <i-panel i-class="panel_view">
+      <van-field value="{{ value }}" placeholder="请输入快递单号" border="{{ false }}" left-icon="edit" icon="qr" type="number" use-button-slot clearable bind:change="onChange">
+        <van-button slot="button" size="small" round>查询</van-button>
+      </van-field>
+    </i-panel>
+  </view>
+</view>
