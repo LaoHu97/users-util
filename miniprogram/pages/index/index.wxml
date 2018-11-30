@@ -1,5 +1,6 @@
 <!-- index.wxml -->
 <view>
+  <van-dialog show="{{ userInfoShow }}" message="1123123123" confirm-button-open-type="getUserInfo" bind:getuserinfo="getUserInfo"></van-dialog>
   <i-grid>
     <i-row>
       <navigator url="/expressQueryPackage/pages/express/express">

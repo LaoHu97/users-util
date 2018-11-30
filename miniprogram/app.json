@@ -51,6 +51,7 @@
     "i-row": "components/iview-weapp/row/index",
     "i-input": "components/iview-weapp/input/index",
     "i-panel": "components/iview-weapp/panel/index",
+    "i-icon": "components/iview-weapp/icon/index",
     "van-row": "miniprogram_npm/vant-weapp/row/index",
     "van-col": "miniprogram_npm/vant-weapp/col/index",
     "van-button": "miniprogram_npm/vant-weapp/button/index",
@@ -58,6 +59,9 @@
     "van-icon": "miniprogram_npm/vant-weapp/icon/index",
     "van-field": "miniprogram_npm/vant-weapp/field/index",
     "van-cell": "miniprogram_npm/vant-weapp/cell/index",
-    "van-cell-group": "miniprogram_npm/vant-weapp/cell-group/index"
+    "van-cell-group": "miniprogram_npm/vant-weapp/cell-group/index",
+    "van-dialog": "miniprogram_npm/vant-weapp/dialog/index",
+    "van-block": "components/label-block/index",
+    "van-steps": "miniprogram_npm/vant-weapp/steps/index"
   }
 }

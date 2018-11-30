@@ -1,4 +1,5 @@
 {
-  "navigationBarBackgroundColor": "#409EFF",
-  "navigationBarTitleText": "快递查询"
+  "navigationBarBackgroundColor": "#2d8cf0",
+  "navigationBarTitleText": "快递查询",
+  "navigationBarTextStyle": "white"
 }

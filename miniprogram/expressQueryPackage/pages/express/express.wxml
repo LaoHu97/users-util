@@ -2,9 +2,22 @@
   <view class="top_view">
     <van-button round size="small">快递选择：自动</van-button>
     <i-panel i-class="panel_view">
-      <van-field value="{{ value }}" placeholder="请输入快递单号" border="{{ false }}" left-icon="edit" icon="qr" type="number" use-button-slot clearable bind:change="onChange">
-        <van-button slot="button" size="small" round>查询</van-button>
+      <van-field value="{{ expressNumber }}" placeholder="请输入快递单号" left-icon="logistics" type="number" use-button-slot use-icon-slot clearable bind:change="onChange">
+        <van-button slot="button" size="small" round bind:click="onQueryClick">查询</van-button>
+        <i-icon slot="icon" type="scan" size="24" color="#2d8cf0" />
       </van-field>
     </i-panel>
+  </view>
+  <view class="history_view" wx:if="{{history_view}}">
+    <van-block title="历史记录">
+      <van-cell-group>
+        <van-cell wx:for="{{historyList}}" wx:key="index" title="{{item.no}}" value="{{item.com}}" />
+      </van-cell-group>
+    </van-block>
+  </view>
+  <view class="log_view" wx:else>
+    <van-block title="物流信息">
+      <van-steps steps="{{ steps }}" active="{{ steps.length - 1 }}" direction="vertical" active-color="#2d8cf0" />
+    </van-block>
   </view>
 </view>
