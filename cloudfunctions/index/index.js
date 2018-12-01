@@ -5,7 +5,8 @@ const util = require('./util/util')
 const axios = require('axios')
 
 cloud.init()
-axios.defaults.baseURL = 'http://v.juhe.cn';
+axios.defaults.baseURL = 'http://api.kdniao.com'
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
 
 const db = cloud.database()
 const _ = db.command

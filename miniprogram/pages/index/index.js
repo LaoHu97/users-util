@@ -37,8 +37,6 @@ Page({
       data: {}
     }
     wx.cloud.callFunction(callPara).then(res => {
-      console.log(res);
-      
       app.globalData.openid = res.result.openid
     })
   },

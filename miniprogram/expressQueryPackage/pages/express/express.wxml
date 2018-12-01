@@ -1,8 +1,9 @@
 <view>
+  <van-toast id="van-toast" />
   <view class="top_view">
     <van-button round size="small">快递选择：自动</van-button>
     <i-panel i-class="panel_view">
-      <van-field value="{{ expressNumber }}" placeholder="请输入快递单号" left-icon="logistics" type="number" use-button-slot use-icon-slot clearable bind:change="onChange">
+      <van-field value="{{ expressNumber }}" placeholder="请输入快递单号" left-icon="logistics" use-button-slot use-icon-slot clearable bind:change="onChange"  bind:confirm="onConfirm">
         <van-button slot="button" size="small" round bind:click="onQueryClick">查询</van-button>
         <i-icon slot="icon" type="scan" size="24" color="#2d8cf0" />
       </van-field>
@@ -10,14 +11,22 @@
   </view>
   <view class="history_view" wx:if="{{history_view}}">
     <van-block title="历史记录">
-      <van-cell-group>
-        <van-cell wx:for="{{historyList}}" wx:key="index" title="{{item.no}}" value="{{item.com}}" />
+      <van-cell-group wx:if="{{historyList.length}}">
+        <van-cell wx:for="{{historyList}}" wx:key="index" title="{{item.no}}" value="{{item.company}}" />
       </van-cell-group>
+      <view class="err_view" wx:else>
+        <i-icon type="emoji_fill" size="28" color="#80848f" />
+        <view class="text">暂无历史记录</view>
+      </view>
     </van-block>
   </view>
   <view class="log_view" wx:else>
     <van-block title="物流信息">
-      <van-steps steps="{{ steps }}" active="{{ steps.length - 1 }}" direction="vertical" active-color="#2d8cf0" />
+      <van-steps wx:if="{{steps.length}}" steps="{{ steps }}" active="{{ steps.length - 1 }}" direction="vertical" active-color="#2d8cf0" />
+      <view class="err_view" wx:else>
+        <i-icon type="emoji_fill" size="28" color="#80848f" />
+        <view class="text">暂无轨迹信息</view>
+      </view>
     </van-block>
   </view>
 </view>

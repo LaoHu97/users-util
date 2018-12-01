@@ -3,6 +3,8 @@ const db = wx.cloud.database()
 const expressHistoryQuery = db.collection('expressHistoryQuery')
 const _ = db.command
 
+import Toast from '../../../miniprogram_npm/vant-weapp/toast/toast';
+
 Page({
   data: {
     expressNumber: '',
@@ -11,54 +13,71 @@ Page({
     steps: []
   },
   onShow() {
+    wx.getClipboardData({
+      success: res => {
+        console.log(res.data)
+      }
+    })
+  },
+  onReady() {
     this.getExpressHistory()
   },
   onQueryClick() {
+    if (!this.data.expressNumber) {
+      return Toast('请输入快递单号')
+    }
     // 调用云函数
     let callPara = {
       name: 'index',
       data: {
         $url: 'expressQueryOrder',
-        com: 'ems',
-        no: this.data.expressNumber,
-        key: '799aaae9a1f4c9a468f5334e151cea4b'
+        ShipperCode: 'YZPY',
+        LogisticCode: this.data.expressNumber,
       }
     }
-    this.addExpressHistory()
+    Toast.loading({ mask: true, message: '请稍后...' });
     wx.cloud.callFunction(callPara).then(res => {
-      if (res.result.resultcode === '200') {
-        let list = []
-        for (let i = 0; i < res.result.result.list.length; i++) {
-          const element = res.result.result.list[i];
-          list.push({text: element.datetime, desc: element.remark})
-        }
+      Toast.clear()
+      console.log(res);
+      if (!res.result.Success) {
         this.setData({
-          history_view: false,
-          steps: list
+          history_view: true
         })
+        Toast(res.result.Reason)
+        return
       }
+      let list = []
+      for (let i = 0; i < res.result.Traces.length; i++) {
+        const element = res.result.Traces[i];
+        list.push({ text: element.AcceptTime, desc: element.AcceptStation })
+      }
+      this.setData({
+        history_view: false,
+        steps: list
+      })
+      // this.addExpressHistory(res.result.result.company)
     })
   },
-  ////添加一条当前用户的历史纪录
-  addExpressHistory() {
+  //更新或添加一条当前用户的历史纪录
+  addExpressHistory(val) {
     let dbPara = {
       data: {
         id: this.data.expressNumber,
         com: 'ems',
         no: this.data.expressNumber,
-        date: new Date()
+        date: new Date(),
+        company: val
       }
     }
     expressHistoryQuery.doc(this.data.expressNumber).set(dbPara).then(res => {
-      console.log(res);
-
+      console.log('历史记录更新或添加成功');
     })
   },
   //获取当前用户的历史纪录
   getExpressHistory() {
     expressHistoryQuery.where({
       _openid: app.globalData.openid// 填入当前用户 openid
-    }).limit(5).get().then(res => {
+    }).limit(5).orderBy('date', 'desc').get().then(res => {
       this.setData({
         historyList: res.data
       })
@@ -68,5 +87,8 @@ Page({
     this.setData({
       expressNumber: event.detail
     })
+  },
+  onConfirm() {
+    this.onQueryClick()
   }
 })

@@ -20,3 +20,9 @@ page {
 .cell-index--van-cell__left-icon{
   margin-top: 10rpx;
 }
+.err_view{
+  text-align: center
+}
+.err_view .text{
+  font-size: 28rpx;
+}
