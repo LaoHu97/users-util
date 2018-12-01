@@ -12,7 +12,7 @@
   <view class="history_view" wx:if="{{history_view}}">
     <van-block title="历史记录">
       <van-cell-group wx:if="{{historyList.length}}">
-        <van-cell wx:for="{{historyList}}" wx:key="index" title="{{item.no}}" value="{{item.company}}" />
+        <van-cell wx:for="{{historyList}}" wx:key="index" title="{{item.LogisticCode}}" value="{{item.ShipperCode}}" />
       </van-cell-group>
       <view class="err_view" wx:else>
         <i-icon type="emoji_fill" size="28" color="#80848f" />

@@ -13,16 +13,13 @@ exports.main = async (event, context, db, _, util, axios) => {
       DataSign: '',
       DataType: '2'
     }
-    let md5DataSign = encodeURI(new Buffer(util.md5Sign(JSON.stringify(para.RequestData) + '526c4803-a7c1-447a-b314-f5645133f086')).toString('base64'))
-    let urlRequestData = encodeURI(JSON.stringify(para.RequestData))
-    let paraAxios = `RequestData=${urlRequestData}&EBusinessID=${para.EBusinessID}&RequestType=${para.RequestType}&DataSign=${md5DataSign}&DataType=${para.DataType}`
-    console.log(paraAxios);
-    axios.post('/Ebusiness/EbusinessOrderHandle.aspx', paraAxios)
+    console.log('查询订单号码入参：' + JSON.stringify(util.kdniaoApi(para)))
+    axios.post('/Ebusiness/EbusinessOrderHandle.aspx', util.kdniaoApi(para))
       .then(function (response) {
         resolve(response.data)
       })
       .catch(function (error) {
         reject(error)
-      });
+      })
   })
 }

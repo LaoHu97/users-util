@@ -15,7 +15,9 @@ Page({
   onShow() {
     wx.getClipboardData({
       success: res => {
-        console.log(res.data)
+        this.setData({
+          expressNumber: res.data
+        })
       }
     })
   },
@@ -24,7 +26,9 @@ Page({
   },
   onQueryClick() {
     if (!this.data.expressNumber) {
-      return Toast('请输入快递单号')
+      this.getExpressHistory()
+      Toast('请输入快递单号')
+      return
     }
     // 调用云函数
     let callPara = {
@@ -38,11 +42,9 @@ Page({
     Toast.loading({ mask: true, message: '请稍后...' });
     wx.cloud.callFunction(callPara).then(res => {
       Toast.clear()
-      console.log(res);
+      console.log(res)
       if (!res.result.Success) {
-        this.setData({
-          history_view: true
-        })
+        this.getExpressHistory()
         Toast(res.result.Reason)
         return
       }
@@ -55,26 +57,26 @@ Page({
         history_view: false,
         steps: list
       })
-      // this.addExpressHistory(res.result.result.company)
+      if (res.result.State === '3') {
+        this.addExpressHistory(res.result) 
+      }
     })
   },
   //更新或添加一条当前用户的历史纪录
   addExpressHistory(val) {
     let dbPara = {
-      data: {
-        id: this.data.expressNumber,
-        com: 'ems',
-        no: this.data.expressNumber,
-        date: new Date(),
-        company: val
-      }
+      data: val
     }
+    dbPara.data.id = this.data.expressNumber
     expressHistoryQuery.doc(this.data.expressNumber).set(dbPara).then(res => {
       console.log('历史记录更新或添加成功');
     })
   },
   //获取当前用户的历史纪录
   getExpressHistory() {
+    this.setData({
+      history_view: true
+    })
     expressHistoryQuery.where({
       _openid: app.globalData.openid// 填入当前用户 openid
     }).limit(5).orderBy('date', 'desc').get().then(res => {
