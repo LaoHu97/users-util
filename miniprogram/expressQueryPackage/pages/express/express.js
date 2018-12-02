@@ -24,6 +24,11 @@ Page({
   onReady() {
     this.getExpressHistory()
   },
+  expressSelechClick() {
+    wx.navigateTo({
+      url: '/expressQueryPackage/pages/expressSelech/expressSelech'
+    })
+  },
   onQueryClick() {
     if (!this.data.expressNumber) {
       this.getExpressHistory()

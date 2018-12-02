@@ -8,7 +8,8 @@
       "root": "expressQueryPackage",
       "name": "expressQueryPackage",
       "pages": [
-        "pages/express/express"
+        "pages/express/express",
+        "pages/expressSelech/expressSelech"
       ]
     }
   ],
@@ -52,6 +53,8 @@
     "i-input": "components/iview-weapp/input/index",
     "i-panel": "components/iview-weapp/panel/index",
     "i-icon": "components/iview-weapp/icon/index",
+    "i-index": "components/iview-weapp/index/index",
+    "i-index-item": "components/iview-weapp/index-item/index",
     "van-row": "miniprogram_npm/vant-weapp/row/index",
     "van-col": "miniprogram_npm/vant-weapp/col/index",
     "van-button": "miniprogram_npm/vant-weapp/button/index",

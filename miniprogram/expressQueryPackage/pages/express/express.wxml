@@ -1,7 +1,7 @@
 <view>
   <van-toast id="van-toast" />
   <view class="top_view">
-    <van-button round size="small">快递选择：自动</van-button>
+    <van-button round size="small" bind:click="expressSelechClick">快递选择：自动</van-button>
     <i-panel i-class="panel_view">
       <van-field value="{{ expressNumber }}" placeholder="请输入快递单号" left-icon="logistics" use-button-slot use-icon-slot clearable bind:change="onChange"  bind:confirm="onConfirm">
         <van-button slot="button" size="small" round bind:click="onQueryClick">查询</van-button>
