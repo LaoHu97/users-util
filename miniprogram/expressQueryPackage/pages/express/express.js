@@ -3,14 +3,22 @@ const db = wx.cloud.database()
 const expressHistoryQuery = db.collection('expressHistoryQuery')
 const _ = db.command
 
-import Toast from '../../../miniprogram_npm/vant-weapp/toast/toast';
+import Toast from '../../../miniprogram_npm/vant-weapp/toast/toast'
+import { KDN } from '../expressSelech/KDN'
 
 Page({
   data: {
     expressNumber: '',
     historyList: [],
-    history_view: true,
-    steps: []
+    buttomView: 0,
+    steps: [],
+    expressSelech: {
+      name: '自动',
+      code: ''
+    }
+  },
+  onLoad(query) {
+
   },
   onShow() {
     wx.getClipboardData({
@@ -29,6 +37,10 @@ Page({
       url: '/expressQueryPackage/pages/expressSelech/expressSelech'
     })
   },
+  historyClick(item) {
+    console.log(item);
+    
+  },
   onQueryClick() {
     if (!this.data.expressNumber) {
       this.getExpressHistory()
@@ -40,31 +52,30 @@ Page({
       name: 'index',
       data: {
         $url: 'expressQueryOrder',
-        ShipperCode: 'YZPY',
+        ShipperCode: this.data.expressSelech.code,
         LogisticCode: this.data.expressNumber,
       }
     }
     Toast.loading({ mask: true, message: '请稍后...' });
     wx.cloud.callFunction(callPara).then(res => {
       Toast.clear()
-      console.log(res)
+      console.info(res)
       if (!res.result.Success) {
         this.getExpressHistory()
         Toast(res.result.Reason)
         return
       }
-      let list = []
-      for (let i = 0; i < res.result.Traces.length; i++) {
-        const element = res.result.Traces[i];
-        list.push({ text: element.AcceptTime, desc: element.AcceptStation })
-      }
+      let list = res.result.Traces.map(item => {
+        return {
+          text: item.AcceptTime,
+          desc: item.AcceptStation
+        }
+      })
       this.setData({
-        history_view: false,
+        buttomView: 2,
         steps: list
       })
-      if (res.result.State === '3') {
-        this.addExpressHistory(res.result) 
-      }
+      this.addExpressHistory(res.result)
     })
   },
   //更新或添加一条当前用户的历史纪录
@@ -73,20 +84,20 @@ Page({
       data: val
     }
     dbPara.data.id = this.data.expressNumber
+    dbPara.data.name = KDN.filter(item => item.code === val.ShipperCode)[0].name
+    dbPara.data.date = new Date().getTime()
     expressHistoryQuery.doc(this.data.expressNumber).set(dbPara).then(res => {
       console.log('历史记录更新或添加成功');
     })
   },
   //获取当前用户的历史纪录
   getExpressHistory() {
-    this.setData({
-      history_view: true
-    })
     expressHistoryQuery.where({
       _openid: app.globalData.openid// 填入当前用户 openid
     }).limit(5).orderBy('date', 'desc').get().then(res => {
       this.setData({
-        historyList: res.data
+        historyList: res.data,
+        buttomView: 1
       })
     })
   },

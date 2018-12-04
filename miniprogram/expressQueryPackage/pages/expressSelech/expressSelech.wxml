@@ -1,7 +1,7 @@
 <view class="i-index">
 		<i-index height="100%" bind:change="onChange">
 				<i-index-item wx:for="{{ KDN }}" wx:for-index="index" wx:key="{{index}}" wx:for-item="item" name="{{item.key}}">
-						<view class="i-index-item" wx:for="{{item.list}}" wx:for-index="in" wx:key="{{in}}" wx:for-item="it">
+						<view class="i-index-item" wx:for="{{item.list}}" wx:for-index="in" wx:key="{{in}}" wx:for-item="it" data-express="{{it}}" bindtap="tapExpress">
 								{{it.name}}
 						</view>
 				</i-index-item>

@@ -66,6 +66,7 @@
     "van-dialog": "miniprogram_npm/vant-weapp/dialog/index",
     "van-block": "components/label-block/index",
     "van-steps": "miniprogram_npm/vant-weapp/steps/index",
-    "van-toast": "miniprogram_npm/vant-weapp/toast/index"
+    "van-toast": "miniprogram_npm/vant-weapp/toast/index",
+    "van-loading": "miniprogram_npm/vant-weapp/loading/index"
   }
 }

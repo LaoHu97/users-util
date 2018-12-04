@@ -27,7 +27,7 @@ page {
 .err_view .text{
   font-size: 28rpx;
 }
-/* .field-index--van-field{
-  padding: 5px 15px!important;
-  border-radius: 10px;
-} */
+.loading_class{
+  text-align: center;
+  margin-top: 24rpx;
+}
