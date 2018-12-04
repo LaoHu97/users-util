@@ -1,9 +1,11 @@
 <view>
   <van-toast id="van-toast" />
   <view class="top_view">
-    <van-button round size="small" bind:click="expressSelechClick">快递选择：{{expressSelech.name}}</van-button>
+    <van-button round size="small" bind:click="expressSelechClick">
+      快递选择：{{expressSelech.name}}
+    </van-button>
     <i-panel i-class="panel_view">
-      <van-field value="{{ expressNumber }}" placeholder="请输入快递单号" left-icon="logistics" use-button-slot use-icon-slot clearable bind:change="onChange" bind:confirm="onConfirm">
+      <van-field value="{{ expressNumber }}" placeholder="请输入快递单号" left-icon="logistics" bind:clear="bindClearClick" use-button-slot use-icon-slot clearable bind:change="onChange" bind:confirm="onConfirm">
         <van-button slot="button" size="small" round bind:click="onQueryClick">查询</van-button>
         <i-icon slot="icon" type="scan" size="24" color="#2d8cf0" />
       </van-field>

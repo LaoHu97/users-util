@@ -23,13 +23,18 @@ Page({
   onShow() {
     wx.getClipboardData({
       success: res => {
-        this.setData({
-          expressNumber: res.data
-        })
+        if (/^[a-zA-Z0-9]{6,18}$/.test(res.data)) {
+          this.setData({
+            expressNumber: res.data
+          }) 
+        }
       }
     })
   },
   onReady() {
+    this.getExpressHistory()
+  },
+  bindClearClick() {
     this.getExpressHistory()
   },
   expressSelechClick() {
@@ -39,7 +44,11 @@ Page({
   },
   historyClick(item) {
     console.log(item);
-    
+    this.setData({
+      expressNumber: item.target.dataset.item.LogisticCode
+    }, () => {
+      this.onQueryClick()
+    })
   },
   onQueryClick() {
     if (!this.data.expressNumber) {
@@ -92,9 +101,7 @@ Page({
   },
   //获取当前用户的历史纪录
   getExpressHistory() {
-    expressHistoryQuery.where({
-      _openid: app.globalData.openid// 填入当前用户 openid
-    }).limit(5).orderBy('date', 'desc').get().then(res => {
+    expressHistoryQuery.limit(5).orderBy('date', 'desc').get().then(res => {
       this.setData({
         historyList: res.data,
         buttomView: 1

@@ -1,60 +1,34 @@
 <!-- index.wxml -->
 <view>
-  <van-dialog show="{{ userInfoShow }}" message="1123123123" confirm-button-open-type="getUserInfo" bind:getuserinfo="getUserInfo"></van-dialog>
-  <i-grid>
+  <swiper indicator-dots="{{true}}" autoplay="{{true}}" circular="{{true}}" vertical="{{true}}">
+    <block wx:for="{{imgUrls}}" wx:key="{{item}}">
+      <swiper-item>
+        <image mode="center" src="{{item}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <i-grid i-class="grid_view">
     <i-row>
       <navigator url="/expressQueryPackage/pages/express/express">
-        <i-grid-item>
+        <i-grid-item i-class="grid_item">
           <i-grid-icon>
-            <van-icon size="28px" name="shopping-cart" />
+            <van-icon size="28px" name="http://vpssss.oss-cn-qingdao.aliyuncs.com/icon/in_transit.png" />
           </i-grid-icon>
           <i-grid-label>快递查询</i-grid-label>
         </i-grid-item>
       </navigator>
-      <i-grid-item>
+      <i-grid-item i-class="grid_item">
         <i-grid-icon>
-          <van-icon size="28px" name="shopping-cart" />
+          <van-icon size="28px" name="http://vpssss.oss-cn-qingdao.aliyuncs.com/icon/idea.png" />
         </i-grid-icon>
-        <i-grid-label>快递查询</i-grid-label>
+        <i-grid-label>敬请期待</i-grid-label>
       </i-grid-item>
-      <i-grid-item>
+      <i-grid-item i-class="grid_item">
         <i-grid-icon>
-          <van-icon size="28px" name="shopping-cart" />
+          <van-icon size="28px" name="http://vpssss.oss-cn-qingdao.aliyuncs.com/icon/idea.png" />
         </i-grid-icon>
-        <i-grid-label>快递查询</i-grid-label>
+        <i-grid-label>敬请期待</i-grid-label>
       </i-grid-item>
     </i-row>
   </i-grid>
-  <!-- <view class="userinfo">
-    <button 
-      open-type="getUserInfo" 
-      bindgetuserinfo="onGetUserInfo"
-      class="userinfo-avatar"
-      style="background-image: url({{avatarUrl}})"
-    ></button>
-    <view>
-      <button class="userinfo-nickname" bindtap="onGetOpenid">点击获取 openid</button>
-    </view>
-  </view>
-
-  <view class="uploader">
-    <view class="uploader-text" bindtap="doUpload">
-      <text>上传图片</text>
-    </view>
-    <view class="uploader-container" wx:if="{{imgUrl}}">
-      <image class="uploader-image" src="{{imgUrl}}" mode="aspectFit" bindtap="previewImg"></image>
-    </view>
-  </view>
-
-  <view class="uploader">
-    <navigator url="../databaseGuide/databaseGuide" open-type="navigate" class="uploader-text">
-      <text>前端操作数据库</text>
-    </navigator>
-  </view>
-  <view class="uploader">
-    <navigator url="../addFunction/addFunction" open-type="navigate" class="uploader-text">
-      <text>快速新建云函数</text>
-    </navigator>
-  </view>
-    <van-button type="default">默认按钮</van-button> -->
 </view>

@@ -6,3 +6,12 @@ page {
   flex-direction: column;
   justify-content: flex-start;
 }
+.myapp_view{
+  margin-top: 45rpx;
+}
+.top_avatar{
+  height: 200rpx;
+  text-align: center;
+  line-height: 200rpx;
+  background: #fff;
+}

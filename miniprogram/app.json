@@ -10,7 +10,8 @@
       "pages": [
         "pages/express/express",
         "pages/expressSelech/expressSelech"
-      ]
+      ],
+      "independent": false
     }
   ],
   "preloadRule": {
@@ -55,6 +56,8 @@
     "i-icon": "components/iview-weapp/icon/index",
     "i-index": "components/iview-weapp/index/index",
     "i-index-item": "components/iview-weapp/index-item/index",
+    "i-card": "components/iview-weapp/card/index",
+    "i-avatar": "components/iview-weapp/avatar/index",
     "van-row": "miniprogram_npm/vant-weapp/row/index",
     "van-col": "miniprogram_npm/vant-weapp/col/index",
     "van-button": "miniprogram_npm/vant-weapp/button/index",
