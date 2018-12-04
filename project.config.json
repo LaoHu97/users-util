@@ -8,7 +8,7 @@
 		"minified": true,
 		"newFeature": true,
 		"nodeModules": true,
-		"autoAudits": false,
+		"autoAudits": true,
 		"uglifyFileName": true
 	},
 	"appid": "wx7a2b775495664f2c",

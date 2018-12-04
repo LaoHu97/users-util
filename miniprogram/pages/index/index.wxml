@@ -3,7 +3,7 @@
   <swiper indicator-dots="{{true}}" autoplay="{{true}}" circular="{{true}}" vertical="{{true}}">
     <block wx:for="{{imgUrls}}" wx:key="{{item}}">
       <swiper-item>
-        <image mode="center" src="{{item}}" class="slide-image" />
+        <image mode="aspectFill" src="{{item}}" class="slide-image" />
       </swiper-item>
     </block>
   </swiper>
