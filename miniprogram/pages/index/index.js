@@ -4,7 +4,7 @@ const app = getApp()
 Page({
   data: {
     imgUrls: [
-      'http://vpssss.oss-cn-qingdao.aliyuncs.com/123123.png'
+      'https://vpssss.oss-cn-qingdao.aliyuncs.com/user-util/banner/banner-01.jpg?x-oss-process=style/compression-image'
     ]
   },
   onShareAppMessage() {

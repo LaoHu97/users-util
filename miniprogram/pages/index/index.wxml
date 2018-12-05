@@ -12,20 +12,20 @@
       <navigator url="/expressQueryPackage/pages/express/express">
         <i-grid-item i-class="grid_item">
           <i-grid-icon>
-            <van-icon size="28px" name="http://vpssss.oss-cn-qingdao.aliyuncs.com/icon/in_transit.png" />
+            <van-icon size="28px" name="https://vpssss.oss-cn-qingdao.aliyuncs.com/user-util/icons/in_transit.png?x-oss-process=style/compression-image" />
           </i-grid-icon>
           <i-grid-label>快递查询</i-grid-label>
         </i-grid-item>
       </navigator>
       <i-grid-item i-class="grid_item">
         <i-grid-icon>
-          <van-icon size="28px" name="http://vpssss.oss-cn-qingdao.aliyuncs.com/icon/idea.png" />
+          <van-icon size="28px" name="https://vpssss.oss-cn-qingdao.aliyuncs.com/user-util/icons/idea.png?x-oss-process=style/compression-image" />
         </i-grid-icon>
         <i-grid-label>敬请期待</i-grid-label>
       </i-grid-item>
       <i-grid-item i-class="grid_item">
         <i-grid-icon>
-          <van-icon size="28px" name="http://vpssss.oss-cn-qingdao.aliyuncs.com/icon/idea.png" />
+          <van-icon size="28px" name="https://vpssss.oss-cn-qingdao.aliyuncs.com/user-util/icons/idea.png?x-oss-process=style/compression-image" />
         </i-grid-icon>
         <i-grid-label>敬请期待</i-grid-label>
       </i-grid-item>
