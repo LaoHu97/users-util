@@ -1,20 +1,18 @@
 <view>
   <van-toast id="van-toast" />
   <view class="top_view">
-    <van-button round size="small" bind:click="expressSelechClick">
+    <van-button round size="small" plain custom-class="custom_class_plain" type="primary" bind:click="expressSelechClick">
       快递选择：{{expressSelech.name}}
     </van-button>
     <i-panel i-class="panel_view">
-      <van-field value="{{ expressNumber }}" placeholder="请输入快递单号" left-icon="logistics" bind:clear="bindClearClick" use-button-slot use-icon-slot clearable bind:change="onChange" bind:confirm="onConfirm">
-        <van-button slot="button" size="small" round bind:click="onQueryClick">查询</van-button>
-        <i-icon slot="icon" type="scan" size="24" color="#2d8cf0" />
+      <van-field value="{{ expressNumber }}" placeholder="请输入快递单号" left-icon="edit-data" icon="https://vpssss.oss-cn-qingdao.aliyuncs.com/user-util/icons/%E6%89%AB%E7%A0%81.png?x-oss-process=style/compression-image" bind:clear="bindClearClick" clearable bind:change="onChange" bind:confirm="onConfirm">
       </van-field>
     </i-panel>
   </view>
   <view class="history_view" wx:if="{{buttomView === 1}}">
     <van-block title="历史记录">
       <van-cell-group wx:if="{{historyList.length}}">
-        <van-cell wx:for="{{historyList}}" is-link data-item="{{item}}" bind:click="historyClick" wx:key="index" title="{{item.LogisticCode}}" value="{{item.name}}" />
+        <van-cell wx:for="{{historyList}}" is-link data-item="{{item}}" bind:click="historyClick" wx:key="index" title="{{item.no}}" value="{{item.name}}" />
       </van-cell-group>
       <view class="err_view" wx:else>
         <i-icon type="emoji_fill" size="28" color="#80848f" />
@@ -24,7 +22,7 @@
   </view>
   <view class="log_view" wx:elif="{{buttomView === 2}}">
     <van-block title="物流信息">
-      <van-steps wx:if="{{steps.length}}" steps="{{ steps }}" active="{{ steps.length - 1 }}" direction="vertical" active-color="#2d8cf0" />
+      <van-steps wx:if="{{steps.length}}" steps="{{ steps }}" active="{{ steps.length - 1 }}" direction="vertical" active-color="#FFAD45" />
       <view class="err_view" wx:else>
         <i-icon type="emoji_fill" size="28" color="#80848f" />
         <view class="text">暂无轨迹信息</view>
@@ -32,6 +30,6 @@
     </van-block>
   </view>
   <view class="loading_class" wx:else>
-    <van-loading type="spinner" size="20px" color="#2d8cf0" />
+    <van-loading type="spinner" size="20px" color="#0A8D80" />
   </view>
 </view>

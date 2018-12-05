@@ -45,7 +45,7 @@ Page({
   historyClick(item) {
     console.log(item);
     this.setData({
-      expressNumber: item.target.dataset.item.LogisticCode
+      expressNumber: item.target.dataset.item.no
     }, () => {
       this.onQueryClick()
     })
@@ -61,28 +61,28 @@ Page({
       name: 'index',
       data: {
         $url: 'expressQueryOrder',
-        ShipperCode: this.data.expressSelech.code,
-        LogisticCode: this.data.expressNumber,
+        type: this.data.expressSelech.code,
+        no: this.data.expressNumber,
       }
     }
     Toast.loading({ mask: true, message: '请稍后...' });
     wx.cloud.callFunction(callPara).then(res => {
       Toast.clear()
       console.info(res)
-      if (!res.result.Success) {
+      if (res.result.code !== 'OK') {
         this.getExpressHistory()
-        Toast(res.result.Reason)
+        Toast(res.result.msg)
         return
       }
-      let list = res.result.Traces.map(item => {
+      let list = res.result.list.map(item => {
         return {
-          text: item.AcceptTime,
-          desc: item.AcceptStation
+          text: item.time,
+          desc: item.content
         }
       })
       this.setData({
         buttomView: 2,
-        steps: list
+        steps: list.reverse()
       })
       this.addExpressHistory(res.result)
     })
@@ -93,7 +93,7 @@ Page({
       data: val
     }
     dbPara.data.id = this.data.expressNumber
-    dbPara.data.name = KDN.filter(item => item.code === val.ShipperCode)[0].name
+    // dbPara.data.name = KDN.filter(item => item.code === val.ShipperCode)[0].name
     dbPara.data.date = new Date().getTime()
     expressHistoryQuery.doc(this.data.expressNumber).set(dbPara).then(res => {
       console.log('历史记录更新或添加成功');

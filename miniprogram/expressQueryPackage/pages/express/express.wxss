@@ -4,30 +4,36 @@ page {
   flex-direction: column;
   justify-content: flex-start;
 }
-.top_view{
+
+.top_view {
   width: 100%;
   height: 380rpx;
-  background: #2d8cf0;
+  background: #0A8D80;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.panel_view{
+
+.panel_view {
   width: 580rpx;
   margin-top: 60rpx;
-  border-radius: 20rpx;
+  border-radius: 10rpx;
 }
-.cell-index--van-cell__left-icon{
-  margin-top: 10rpx;
+
+.van-cell {
+  padding: 8px 15px !important;
 }
-.err_view{
+
+.err_view {
   text-align: center
 }
-.err_view .text{
+
+.err_view .text {
   font-size: 28rpx;
 }
-.loading_class{
+
+.loading_class {
   text-align: center;
   margin-top: 24rpx;
 }

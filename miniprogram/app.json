@@ -30,7 +30,7 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "selectedColor": "#FFC107",
+    "selectedColor": "#FFAD45",
     "list": [
       {
         "pagePath": "pages/index/index",
@@ -54,7 +54,6 @@
     "i-row": "components/iview-weapp/row/index",
     "i-input": "components/iview-weapp/input/index",
     "i-panel": "components/iview-weapp/panel/index",
-    "i-icon": "components/iview-weapp/icon/index",
     "i-index": "components/iview-weapp/index/index",
     "i-index-item": "components/iview-weapp/index-item/index",
     "i-card": "components/iview-weapp/card/index",

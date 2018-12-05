@@ -7,3 +7,12 @@
   align-items: center;
   box-sizing: border-box;
 }
+.custom_class {
+  color: #fff;
+  background-color: #FA7F00 !important;
+  border: 1px solid #FA7F00 !important;
+}
+.custom_class_plain{
+  color: #FA7F00 !important;
+  border:1px solid #FA7F00 !important;
+}

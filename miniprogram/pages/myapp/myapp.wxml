@@ -1,7 +1,7 @@
 <!-- index.wxml -->
 <view>
   <view class="top_avatar">
-    <van-button wx:if="{{!avatarUrl}}" size="normal" bind:getuserinfo="onGetUserInfo" open-type="getUserInfo">登 录</van-button>
+    <van-button wx:if="{{!avatarUrl}}" custom-class="custom_class" type="primary" round size="normal" bind:getuserinfo="onGetUserInfo" open-type="getUserInfo">登 录</van-button>
     <i-avatar wx:else src="{{avatarUrl}}" size="large" shape="square"></i-avatar>
   </view>
   <van-cell-group>
