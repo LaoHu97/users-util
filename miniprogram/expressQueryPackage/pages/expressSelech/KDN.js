@@ -1,4 +1,10 @@
 export const KDN = [{
+  "name": "自动",
+  "code": "",
+  "pinyin1": "*",
+  "pinyin2": "*",
+  "pinyin": "*"
+}, {
   "name": "顺丰",
   "code": "SF",
   "pinyin1": "shun feng ",

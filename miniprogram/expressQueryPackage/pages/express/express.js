@@ -4,7 +4,6 @@ const expressHistoryQuery = db.collection('expressHistoryQuery')
 const _ = db.command
 
 import Toast from '../../../miniprogram_npm/vant-weapp/toast/toast'
-import { KDN } from '../expressSelech/KDN'
 
 Page({
   data: {

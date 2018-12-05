@@ -1,12 +1,16 @@
 <view>
   <van-toast id="van-toast" />
+<van-notice-bar
+  left-icon="https://vpssss.oss-cn-qingdao.aliyuncs.com/user-util/icons/systemprompt.png?x-oss-process=style/compression-image"
+  mode="link"
+  text="点击阅读《使用须知》"
+/>
   <view class="top_view">
     <van-button round size="small" plain custom-class="custom_class_plain" type="primary" bind:click="expressSelechClick">
       快递选择：{{expressSelech.name}}
     </van-button>
     <i-panel i-class="panel_view">
-      <van-field value="{{ expressNumber }}" placeholder="请输入快递单号" left-icon="edit-data" icon="https://vpssss.oss-cn-qingdao.aliyuncs.com/user-util/icons/%E6%89%AB%E7%A0%81.png?x-oss-process=style/compression-image" bind:clear="bindClearClick" clearable bind:change="onChange" bind:confirm="onConfirm">
-      </van-field>
+      <van-field value="{{ expressNumber }}" placeholder="请输入快递单号" left-icon="edit-data" icon="https://vpssss.oss-cn-qingdao.aliyuncs.com/user-util/icons/%E6%89%AB%E7%A0%81.png?x-oss-process=style/compression-image" bind:clear="bindClearClick" clearable bind:change="onChange" bind:confirm="onConfirm"></van-field>
     </i-panel>
   </view>
   <view class="history_view" wx:if="{{buttomView === 1}}">

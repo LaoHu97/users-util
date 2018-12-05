@@ -8,7 +8,7 @@
     </block>
   </swiper>
   <i-grid i-class="grid_view">
-    <i-row>
+    <van-row>
       <navigator url="/expressQueryPackage/pages/express/express">
         <i-grid-item i-class="grid_item">
           <i-grid-icon>
@@ -29,6 +29,6 @@
         </i-grid-icon>
         <i-grid-label>敬请期待</i-grid-label>
       </i-grid-item>
-    </i-row>
+    </van-row>
   </i-grid>
 </view>

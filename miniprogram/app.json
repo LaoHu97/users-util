@@ -51,12 +51,9 @@
     "i-grid-item": "components/iview-weapp/grid-item/index",
     "i-grid-icon": "components/iview-weapp/grid-icon/index",
     "i-grid-label": "components/iview-weapp/grid-label/index",
-    "i-row": "components/iview-weapp/row/index",
-    "i-input": "components/iview-weapp/input/index",
     "i-panel": "components/iview-weapp/panel/index",
     "i-index": "components/iview-weapp/index/index",
     "i-index-item": "components/iview-weapp/index-item/index",
-    "i-card": "components/iview-weapp/card/index",
     "i-avatar": "components/iview-weapp/avatar/index",
     "van-row": "miniprogram_npm/vant-weapp/row/index",
     "van-col": "miniprogram_npm/vant-weapp/col/index",
@@ -70,6 +67,7 @@
     "van-block": "components/label-block/index",
     "van-steps": "miniprogram_npm/vant-weapp/steps/index",
     "van-toast": "miniprogram_npm/vant-weapp/toast/index",
-    "van-loading": "miniprogram_npm/vant-weapp/loading/index"
+    "van-loading": "miniprogram_npm/vant-weapp/loading/index",
+    "van-notice-bar": "miniprogram_npm/vant-weapp/notice-bar/index"
   }
 }
