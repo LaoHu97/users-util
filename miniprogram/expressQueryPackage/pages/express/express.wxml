@@ -4,19 +4,20 @@
   left-icon="https://vpssss.oss-cn-qingdao.aliyuncs.com/user-util/icons/systemprompt.png?x-oss-process=style/compression-image"
   mode="link"
   text="点击阅读《使用须知》"
+  bind:click="noticeBarChange"
 />
   <view class="top_view">
     <van-button round size="small" plain custom-class="custom_class_plain" type="primary" bind:click="expressSelechClick">
       快递选择：{{expressSelech.name}}
     </van-button>
     <i-panel i-class="panel_view">
-      <van-field value="{{ expressNumber }}" placeholder="请输入快递单号" left-icon="edit-data" icon="https://vpssss.oss-cn-qingdao.aliyuncs.com/user-util/icons/%E6%89%AB%E7%A0%81.png?x-oss-process=style/compression-image" bind:clear="bindClearClick" clearable bind:change="onChange" bind:confirm="onConfirm"></van-field>
+      <van-field value="{{ expressNumber }}" bind:click-icon="iconClick" placeholder="请输入快递单号" left-icon="edit-data" icon="https://vpssss.oss-cn-qingdao.aliyuncs.com/user-util/icons/%E6%90%9C%E7%B4%A2.png?x-oss-process=style/compression-image" bind:clear="bindClearClick" clearable bind:change="onChange" bind:confirm="onConfirm"></van-field>
     </i-panel>
   </view>
   <view class="history_view" wx:if="{{buttomView === 1}}">
     <van-block title="历史记录">
       <van-cell-group wx:if="{{historyList.length}}">
-        <van-cell wx:for="{{historyList}}" is-link data-item="{{item}}" bind:click="historyClick" wx:key="index" title="{{item.no}}" value="{{item.name}}" />
+        <van-cell wx:for="{{historyList}}" is-link data-item="{{item}}" bind:click="historyClick" wx:key="index" label="{{item.state === '1' ? '快递收件' : item.state === '2' ? '快递在途中' : item.state === '3' ? '快递已签收' : item.state === '4' ? '问题件' : '快递状态未知'}}" icon="{{item.logo}}" title="{{item.name}}" value="{{item.no}}" />
       </van-cell-group>
       <view class="err_view" wx:else>
         <i-icon type="emoji_fill" size="28" color="#80848f" />

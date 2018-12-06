@@ -1,11 +1,13 @@
 <!-- index.wxml -->
 <view>
   <view class="top_avatar">
-    <van-button wx:if="{{!avatarUrl}}" custom-class="custom_class" type="primary" round size="normal" bind:getuserinfo="onGetUserInfo" open-type="getUserInfo">登 录</van-button>
+    <van-button wx:if="{{!avatarUrl}}" custom-class="custom_class" type="primary" round size="normal" bind:getuserinfo="onGetUserInfo" open-type="getUserInfo">
+      爱登不登
+    </van-button>
     <i-avatar wx:else src="{{avatarUrl}}" size="large" shape="square"></i-avatar>
   </view>
   <van-cell-group>
-    <van-cell title="{{userInfo.nickName}}" value="性别：{{userInfo.gender === 1 ? '男' :  userInfo.gender === 1 ? '女' : '未知'}}" label="{{userInfo.city}}" />
+    <van-cell title="{{userInfo.nickName}}" value="性别：{{userInfo.gender === 1 ? '男' :  userInfo.gender === 1 ? '女' : '人妖'}}" label="{{userInfo.city}}" />
   </van-cell-group>
   <van-cell-group custom-class="myapp_view">
     <van-cell icon="records" is-link title="反馈" size="large" />

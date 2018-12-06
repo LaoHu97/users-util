@@ -15,7 +15,9 @@ const _ = db.command
 
 // 云函数入口函数
 exports.main = async (event, context) => {
-  const app = new TcbRouter({ event })
+  const app = new TcbRouter({
+    event
+  })
 
   // 单号查询
   app.router('expressQueryOrder', async (ctx, next) => {
@@ -24,16 +26,15 @@ exports.main = async (event, context) => {
     await next()
   }, async (ctx) => {
     const expressQueryOrder = require('expressQueryOrder/index.js')
-    ctx.body = expressQueryOrder.main(event, context, db, _, util, axios)
-  });
-  // 单号识别
-  app.router('expressOrderIdentify', async (ctx, next) => {
-    await next()
-  }, async (ctx, next) => {
-    await next()
-  }, async (ctx) => {
-    const expressOrderIdentify = require('expressOrderIdentify/index.js')
-    ctx.body = expressOrderIdentify.main(event, context, db, _, util, axios)
-  });
+    let c = await expressQueryOrder.querySuccessOrder(event, context, db, _, util, axios)
+    console.log(c);
+    if (c.code !== 'FAIL') {
+      ctx.body = c
+    } else {
+      ctx.body = await expressQueryOrder.main(event, context, db, _, util, axios)
+      await expressQueryOrder.setSuccessOrder(ctx.body, context, db, _, util, axios)
+    }
+  })
+
   return app.serve()
 }

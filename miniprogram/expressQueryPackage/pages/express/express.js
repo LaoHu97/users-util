@@ -25,7 +25,7 @@ Page({
         if (/^[a-zA-Z0-9]{6,18}$/.test(res.data)) {
           this.setData({
             expressNumber: res.data
-          }) 
+          })
         }
       }
     })
@@ -40,6 +40,14 @@ Page({
     wx.navigateTo({
       url: '/expressQueryPackage/pages/expressSelech/expressSelech'
     })
+  },
+  noticeBarChange() {
+    wx.navigateTo({
+      url: '/expressQueryPackage/pages/instructions/instructions'
+    })
+  },
+  iconClick() {
+    this.onQueryClick()
   },
   historyClick(item) {
     console.log(item);
@@ -64,7 +72,10 @@ Page({
         no: this.data.expressNumber,
       }
     }
-    Toast.loading({ mask: true, message: '请稍后...' });
+    Toast.loading({
+      mask: true,
+      message: '请稍后...'
+    });
     wx.cloud.callFunction(callPara).then(res => {
       Toast.clear()
       console.info(res)
@@ -91,10 +102,11 @@ Page({
     let dbPara = {
       data: val
     }
-    dbPara.data.id = this.data.expressNumber
+    dbPara.data.id = val.no
     // dbPara.data.name = KDN.filter(item => item.code === val.ShipperCode)[0].name
     dbPara.data.date = new Date().getTime()
-    expressHistoryQuery.doc(this.data.expressNumber).set(dbPara).then(res => {
+    delete dbPara.data._id
+    expressHistoryQuery.doc(val.no).set(dbPara).then(res => {
       console.log('历史记录更新或添加成功');
     })
   },
@@ -111,8 +123,5 @@ Page({
     this.setData({
       expressNumber: event.detail
     })
-  },
-  onConfirm() {
-    this.onQueryClick()
   }
 })
