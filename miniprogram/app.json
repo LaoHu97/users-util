@@ -1,16 +1,25 @@
 {
+  "cloud": true,
   "pages": [
     "pages/index/index",
     "pages/myapp/myapp"
   ],
   "subpackages": [
     {
-      "root": "expressQueryPackage",
+      "root": "package/expressQueryPackage",
       "name": "expressQueryPackage",
       "pages": [
         "pages/express/express",
         "pages/expressSelech/expressSelech",
         "pages/instructions/instructions"
+      ],
+      "independent": false
+    },
+    {
+      "root": "package/translationPackage",
+      "name": "translationPackage",
+      "pages": [
+        "pages/translation/translation"
       ],
       "independent": false
     }
@@ -19,7 +28,8 @@
     "pages/index/index": {
       "network": "wifi",
       "packages": [
-        "expressQueryPackage"
+        "expressQueryPackage",
+        "translationPackage"
       ]
     }
   },
@@ -70,6 +80,9 @@
     "van-toast": "miniprogram_npm/vant-weapp/toast/index",
     "van-loading": "miniprogram_npm/vant-weapp/loading/index",
     "van-notice-bar": "miniprogram_npm/vant-weapp/notice-bar/index",
-    "van-transition": "miniprogram_npm/vant-weapp/transition/index"
+    "van-transition": "miniprogram_npm/vant-weapp/transition/index",
+    "van-notify": "miniprogram_npm/vant-weapp/notify/index",
+    "van-popup": "miniprogram_npm/vant-weapp/popup/index",
+    "van-area": "miniprogram_npm/vant-weapp/area/index"
   }
 }

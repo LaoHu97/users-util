@@ -3,7 +3,7 @@ const db = wx.cloud.database()
 const expressHistoryQuery = db.collection('expressHistoryQuery')
 const _ = db.command
 
-import Toast from '../../../miniprogram_npm/vant-weapp/toast/toast'
+import Toast from '../../../../miniprogram_npm/vant-weapp/toast/toast'
 
 Page({
   data: {
@@ -17,7 +17,7 @@ Page({
     }
   },
   onLoad(query) {
-
+    this.getExpressHistory()
   },
   onShow() {
     wx.getClipboardData({
@@ -31,22 +31,25 @@ Page({
     })
   },
   onReady() {
-    this.getExpressHistory()
+    // this.getExpressHistory()
   },
   bindClearClick() {
     this.getExpressHistory()
   },
   expressSelechClick() {
     wx.navigateTo({
-      url: '/expressQueryPackage/pages/expressSelech/expressSelech'
+      url: '/package/expressQueryPackage/pages/expressSelech/expressSelech'
     })
   },
   noticeBarChange() {
     wx.navigateTo({
-      url: '/expressQueryPackage/pages/instructions/instructions'
+      url: '/package/expressQueryPackage/pages/instructions/instructions'
     })
   },
   iconClick() {
+    this.onQueryClick()
+  },
+  onConfirm() {
     this.onQueryClick()
   },
   historyClick(item) {
