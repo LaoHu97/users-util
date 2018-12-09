@@ -6,7 +6,7 @@ const main = async (event, context, db, _, util, axios) => {
         type: event.type
       }
     }
-    console.log('查询订单号码入参：' + JSON.stringify(para))
+    console.log('--->>>查询订单号码入参：' + JSON.stringify(para))
     axios.get('/cexpress', para).then(res => {
       resolve(res.data)
     }).catch(err => {
@@ -29,6 +29,8 @@ const setSuccessOrder = async (event, context, db, _, util, axios) => {
           resolve(res)
         })
       })
+    } else {
+      console.log('--->>>查询的快递单号状态不是已签收')
     }
   } catch (error) {
     console.error(error)
@@ -41,7 +43,7 @@ const querySuccessOrder = async (event, context, db, _, util, axios) => {
         console.log('--->>>获取一条已签收的记录')
         resolve(res.data)
       }).catch(err => {
-        resolve({code: 'FAIL'})
+        reject()
       })
     })
   } catch (error) {

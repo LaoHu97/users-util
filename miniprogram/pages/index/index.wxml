@@ -24,7 +24,7 @@
           <i-grid-icon>
             <van-icon size="28px" name="https://vpssss.oss-cn-qingdao.aliyuncs.com/user-util/icons/faq.png?x-oss-process=style/compression-image" />
           </i-grid-icon>
-          <i-grid-label>智能翻译</i-grid-label>
+          <i-grid-label>拍照翻译</i-grid-label>
         </i-grid-item>
       </navigator>
       <i-grid-item i-class="grid_item">

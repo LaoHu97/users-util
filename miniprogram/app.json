@@ -10,8 +10,7 @@
       "name": "expressQueryPackage",
       "pages": [
         "pages/express/express",
-        "pages/expressSelech/expressSelech",
-        "pages/instructions/instructions"
+        "pages/expressSelech/expressSelech"
       ],
       "independent": false
     },
@@ -66,6 +65,8 @@
     "i-index": "components/iview-weapp/index/index",
     "i-index-item": "components/iview-weapp/index-item/index",
     "i-avatar": "components/iview-weapp/avatar/index",
+    "i-divider": "components/iview-weapp/divider/index",
+    "i-load-more": "components/iview-weapp/load-more/index",
     "van-row": "miniprogram_npm/vant-weapp/row/index",
     "van-col": "miniprogram_npm/vant-weapp/col/index",
     "van-button": "miniprogram_npm/vant-weapp/button/index",
@@ -79,10 +80,10 @@
     "van-steps": "miniprogram_npm/vant-weapp/steps/index",
     "van-toast": "miniprogram_npm/vant-weapp/toast/index",
     "van-loading": "miniprogram_npm/vant-weapp/loading/index",
-    "van-notice-bar": "miniprogram_npm/vant-weapp/notice-bar/index",
     "van-transition": "miniprogram_npm/vant-weapp/transition/index",
     "van-notify": "miniprogram_npm/vant-weapp/notify/index",
     "van-popup": "miniprogram_npm/vant-weapp/popup/index",
-    "van-area": "miniprogram_npm/vant-weapp/area/index"
+    "van-area": "miniprogram_npm/vant-weapp/area/index",
+    "van-panel": "miniprogram_npm/vant-weapp/panel/index"
   }
 }

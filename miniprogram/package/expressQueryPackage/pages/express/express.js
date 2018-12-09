@@ -80,8 +80,8 @@ Page({
       message: '请稍后...'
     });
     wx.cloud.callFunction(callPara).then(res => {
-      Toast.clear()
       console.info(res)
+      Toast.clear()
       if (res.result.code !== 'OK') {
         this.getExpressHistory()
         Toast(res.result.msg)
