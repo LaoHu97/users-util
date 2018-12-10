@@ -1,0 +1,17 @@
+/**index.wxss**/
+
+page {
+  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.myapp_view{
+  margin-top: 45rpx;
+}
+.top_avatar{
+  height: 200rpx;
+  text-align: center;
+  line-height: 200rpx;
+  background: #fff;
+}

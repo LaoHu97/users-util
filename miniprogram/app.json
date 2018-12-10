@@ -1,35 +1,89 @@
 {
+  "cloud": true,
   "pages": [
     "pages/index/index",
-    "pages/userConsole/userConsole",
-    "pages/storageConsole/storageConsole",
-    "pages/databaseGuide/databaseGuide",
-    "pages/addFunction/addFunction",
-    "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib"
+    "pages/myapp/myapp"
   ],
+  "subpackages": [
+    {
+      "root": "package/expressQueryPackage",
+      "name": "expressQueryPackage",
+      "pages": [
+        "pages/express/express",
+        "pages/expressSelech/expressSelech"
+      ],
+      "independent": false
+    },
+    {
+      "root": "package/translationPackage",
+      "name": "translationPackage",
+      "pages": [
+        "pages/translation/translation"
+      ],
+      "independent": false
+    }
+  ],
+  "preloadRule": {
+    "pages/index/index": {
+      "network": "wifi",
+      "packages": [
+        "expressQueryPackage",
+        "translationPackage"
+      ]
+    }
+  },
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "云开发 QuickStart",
+    "navigationBarTitleText": "工具集合",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
+    "selectedColor": "#FFAD45",
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "首页"
+        "text": "首页",
+        "iconPath": "images/emoji/emoji-27.png",
+        "selectedIconPath": "images/emoji/emoji-1.png"
       },
       {
-        "pagePath": "pages/chooseLib/chooseLib",
-        "text": "日志"
+        "pagePath": "pages/myapp/myapp",
+        "text": "我的",
+        "iconPath": "images/emoji/emoji-14.png",
+        "selectedIconPath": "images/emoji/emoji-15.png"
       }
     ]
   },
   "usingComponents": {
-    "van-row": "../../miniprogram_npm/vant-weapp/row/index",
-    "van-col": "../../miniprogram_npm/vant-weapp/col/index",
-    "van-button": "../../miniprogram_npm/vant-weapp/button/index"
+    "i-grid": "components/iview-weapp/grid/index",
+    "i-grid-item": "components/iview-weapp/grid-item/index",
+    "i-grid-icon": "components/iview-weapp/grid-icon/index",
+    "i-grid-label": "components/iview-weapp/grid-label/index",
+    "i-panel": "components/iview-weapp/panel/index",
+    "i-index": "components/iview-weapp/index/index",
+    "i-index-item": "components/iview-weapp/index-item/index",
+    "i-avatar": "components/iview-weapp/avatar/index",
+    "i-divider": "components/iview-weapp/divider/index",
+    "i-load-more": "components/iview-weapp/load-more/index",
+    "van-row": "miniprogram_npm/vant-weapp/row/index",
+    "van-col": "miniprogram_npm/vant-weapp/col/index",
+    "van-button": "miniprogram_npm/vant-weapp/button/index",
+    "van-nav-bar": "miniprogram_npm/vant-weapp/nav-bar/index",
+    "van-icon": "miniprogram_npm/vant-weapp/icon/index",
+    "van-field": "miniprogram_npm/vant-weapp/field/index",
+    "van-cell": "miniprogram_npm/vant-weapp/cell/index",
+    "van-cell-group": "miniprogram_npm/vant-weapp/cell-group/index",
+    "van-dialog": "miniprogram_npm/vant-weapp/dialog/index",
+    "van-block": "components/label-block/index",
+    "van-steps": "miniprogram_npm/vant-weapp/steps/index",
+    "van-toast": "miniprogram_npm/vant-weapp/toast/index",
+    "van-loading": "miniprogram_npm/vant-weapp/loading/index",
+    "van-transition": "miniprogram_npm/vant-weapp/transition/index",
+    "van-notify": "miniprogram_npm/vant-weapp/notify/index",
+    "van-popup": "miniprogram_npm/vant-weapp/popup/index",
+    "van-area": "miniprogram_npm/vant-weapp/area/index",
+    "van-panel": "miniprogram_npm/vant-weapp/panel/index"
   }
 }

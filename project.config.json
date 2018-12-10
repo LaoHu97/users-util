@@ -2,7 +2,7 @@
 	"miniprogramRoot": "miniprogram/",
 	"cloudfunctionRoot": "cloudfunctions/",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -13,7 +13,7 @@
 	},
 	"appid": "wx7a2b775495664f2c",
 	"projectname": "usersUtil",
-	"libVersion": "2.4.0",
+	"libVersion": "2.2.3",
 	"compileType": "miniprogram",
 	"condition": {
 		"search": {
@@ -35,9 +35,10 @@
 			"current": 0,
 			"list": [
 				{
-					"id": -1,
-					"name": "db guide",
-					"pathName": "pages/databaseGuide/databaseGuide"
+					"id": 0,
+					"name": "updateMiniApp",
+					"pathName": "pages/index/index",
+					"query": ""
 				}
 			]
 		}
