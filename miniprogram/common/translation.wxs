@@ -1,4 +1,4 @@
-export const languageCode = [{
+var languageCode = [{
   label: '中文',
   value: 'zh-CHS'
 }, {
@@ -23,3 +23,15 @@ export const languageCode = [{
   label: '西班牙文',
   value: 'es'
 }]
+
+var formatLang = function (data) {
+  for (var i = 0; i < languageCode.length; i++) {
+    if (data === languageCode[i].value) {
+      return languageCode[i].label
+    }
+  }
+}
+
+module.exports = {
+  formatLang: formatLang
+}

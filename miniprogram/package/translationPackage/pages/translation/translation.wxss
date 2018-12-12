@@ -1,1 +1,49 @@
 /* miniprogram/package/translationPackage/pages/translation/translation.wxss */
+page {
+  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.view_image{
+  width: 100%;
+  text-align: center;
+  margin-top: 20rpx;
+}
+.top_view_images{
+  width: 100%;
+  height: 500rpx;
+}
+.view_button{
+  padding: 20rpx;
+}
+.top_view{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #fff;
+  height: 50px;
+  padding: 0 20%;
+}
+.top_view_center{
+  padding-top: 6rpx;
+}
+
+.top_button_hover{
+  opacity: 0.5;
+}
+
+.group_radio{
+  background: #fff;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+.radio_label{
+  line-height: 100rpx;
+  text-align: center;
+}
+.view_button_custom{
+  background-color:#558b2f !important;
+  border:1px solid #558b2f !important;
+}
