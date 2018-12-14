@@ -76,6 +76,21 @@ Page({
     }
     this.setData(changed)
   },
+  updatedone(data) {
+    // 调用云函数
+    let callPara = {
+      name: 'cloudTranslation',
+      data: {
+        $url: 'imageTranslation',
+        from: this.data.fromLang,
+        to: this.data.toLang,
+        q: data
+      }
+    }
+    wx.cloud.callFunction(callPara).then(res => {
+      console.info(res)
+    })
+  },
   updateImage() {
     wx.chooseImage({
       count: 1,
@@ -90,6 +105,7 @@ Page({
           encoding: 'base64', //编码格式
           success: res => { //成功的回调
             console.log(res)
+            this.updatedone(res.data)
           }
         })
       }

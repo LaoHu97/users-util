@@ -30,4 +30,9 @@
   <view class="view_button">
     <van-button size="large" type="primary" bind:click="updateImage" custom-class="view_button_custom" round>上传图片</van-button>
   </view>
+  <view>
+    <van-panel title="标题" desc="描述信息">
+      <view>内容</view>
+    </van-panel>
+  </view>
 </view>
