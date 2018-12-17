@@ -1,5 +1,6 @@
 //index.js
 const app = getApp()
+import Dialog from '../../miniprogram_npm/vant-weapp/dialog/dialog'
 
 Page({
   data: {
@@ -25,6 +26,14 @@ Page({
         }
       }
     })
+  },
+  serviceClick() {
+    Dialog.alert({
+      message: '如果长时间未回复，请留言说明问题并留下联系方式',
+      confirmButtonOpenType: 'contact'
+    }).then(() => {
+      // on close
+    });
   },
   onGetUserInfo(e) {
     if (!this.logged && e.detail.userInfo) {

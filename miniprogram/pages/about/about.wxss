@@ -1,0 +1,11 @@
+/* miniprogram/pages/about/about.wxss */
+.about_view{
+  padding: 15px;
+}
+.about_eq{
+  text-align: center;
+}
+.about_eq_image{
+  width: 220px;
+  height: 300px;
+}

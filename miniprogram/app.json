@@ -2,7 +2,8 @@
   "cloud": true,
   "pages": [
     "pages/index/index",
-    "pages/myapp/myapp"
+    "pages/myapp/myapp",
+    "pages/about/about"
   ],
   "subpackages": [
     {

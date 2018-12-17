@@ -20,6 +20,16 @@ const main = async (event, context, db, _, util, instance) => {
   return imageTranslation
 }
 
+const getImage = async (event, context, db, _, util, instance, cloud) => {
+  const fileID = event.q
+  const res = await cloud.downloadFile({
+    fileID,
+  })
+  const buffer = res.fileContent
+  return buffer.toString('base64')
+}
+
 module.exports = {
-  main: main
+  main: main,
+  getImage: getImage
 }

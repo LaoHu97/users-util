@@ -28,12 +28,13 @@ exports.main = async (event, context) => {
   const app = new TcbRouter({
     event
   })
-
   // 图片翻译
   const ocrtran = require('ocrtran/index.js')
-
   app.router('imageTranslation', async (ctx, next) => {
-    ctx.body = await ocrtran.main(event, context, db, _, util, instance)
+    await ocrtran.getImage(event, context, db, _, util, instance, cloud).then(async res => {
+      event.q = res
+      ctx.body = await ocrtran.main(event, context, db, _, util, instance)
+    })
   })
   return app.serve()
 }

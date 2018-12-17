@@ -1,7 +1,5 @@
 <!-- index.wxml -->
 <view>
-  <van-dialog id="van-dialog" />
-  <van-notify id="van-notify" />
   <swiper indicator-dots="{{true}}" autoplay="{{true}}" circular="{{true}}" vertical="{{true}}">
     <block wx:for="{{imgUrls}}" wx:key="{{item}}">
       <swiper-item>

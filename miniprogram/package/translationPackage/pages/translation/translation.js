@@ -7,7 +7,7 @@ import Toast from '../../../../miniprogram_npm/vant-weapp/toast/toast'
 Page({
   data: {
     languageCode: languageCode,
-    imageSrc: 'https://vpssss.oss-cn-qingdao.aliyuncs.com/user-util/images/ocrtrans3.jpeg?x-oss-process=style/compression-image',
+    imageSrc: 'https://vpssss.oss-cn-qingdao.aliyuncs.com/user-util/images/shili.jpg?x-oss-process=style/compression-image',
     radioGroup: false,
     fromLang: 'zh-CHS',
     toLang: 'en',
@@ -90,12 +90,6 @@ Page({
       }
     }
     console.log(callPara);
-    
-    Toast.loading({
-      mask: true,
-      message: '快马加鞭···',
-      duration: 0
-    });
     wx.cloud.callFunction(callPara).then(res => {
       console.info(res)
       Toast.clear()
@@ -117,12 +111,20 @@ Page({
         this.setData({
           imageSrc: res.tempFilePaths[0]
         })
-        wx.getFileSystemManager().readFile({
-          filePath: res.tempFilePaths[0], //选择图片返回的相对路径
-          encoding: 'base64', //编码格式
-          success: res => { //成功的回调
-            this.updatedone(res.data)
-          }
+        Toast.loading({
+          mask: true,
+          message: '快马加鞭···',
+          duration: 0
+        })
+        wx.cloud.uploadFile({
+          cloudPath: `translationFile/${Date.now()}.jpeg`, // 上传至云端的路径
+          filePath: res.tempFilePaths[0], // 小程序临时文件路径
+          success: res => {
+            // 返回文件 ID
+            console.log(res.fileID)
+            this.updatedone(res.fileID)
+          },
+          fail: console.error
         })
       }
     })
