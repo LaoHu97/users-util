@@ -1,0 +1,11 @@
+<view>
+  <view class="about_view">
+    1.目前小程序1.0.0版可能不稳定，欢迎反馈问题
+  </view>
+  <view class="about_view">
+    2.使用过程中的任何问题可到“投诉与反馈”中反应，第一时间处理解决！也可以点击下列二维码扫一扫联系作者
+  </view>
+  <view class="about_eq" bindtap="tapImage">
+    <image class="about_eq_image" mode="{{aspectFill}}" src="{{eqSrc}}"></image>
+  </view>
+</view>

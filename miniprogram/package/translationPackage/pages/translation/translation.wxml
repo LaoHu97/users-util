@@ -1,12 +1,44 @@
 <!-- miniprogram/package/translationPackage/pages/translation/translation.wxml -->
+<wxs module="common" src="../../../../common/translation.wxs"></wxs>
 <view>
-<van-cell-group>
-  <van-button bind:click="toggleBottomPopup" class="demo-margin-right">底部弹出</van-button>
-</van-cell-group>
-  <van-popup show="{{ bottomShow }}" position="bottom" custom-class="bottom" bind:close="toggleBottomPopup">
-    <van-area area-list="{{ areaList }}" columns-num="{{ 1 }}" title="标题" />
-  </van-popup>
-  <van-cell-group>
-    <van-field type="textarea" autosize placeholder="请输入用户名"/>
-  </van-cell-group>
+  <van-toast id="van-toast" />
+  <view class="top_view van-hairline--bottom">
+    <view class="top_view_left" bindtap="clickLeft" hover-class="top_button_hover">
+      <text>{{ common.formatLang(fromLang) }}</text>
+      <van-icon size="18rpx" name="https://vpssss.oss-cn-qingdao.aliyuncs.com/user-util/icons/play_fill.png?x-oss-process=style/compression-image" />
+    </view>
+    <view class="top_view_center" bindtap="clickCenter" hover-class="top_button_hover">
+      <van-icon size="30rpx" name="https://vpssss.oss-cn-qingdao.aliyuncs.com/user-util/icons/%E4%BA%A4%E6%8D%A2.png?x-oss-process=style/compression-image" />
+    </view>
+    <view class="top_view_right" bindtap="clickRight" hover-class="top_button_hover">
+      <text>{{ common.formatLang(toLang) }}</text>
+      <van-icon size="18rpx" name="https://vpssss.oss-cn-qingdao.aliyuncs.com/user-util/icons/play_fill.png?x-oss-process=style/compression-image" />
+    </view>
+  </view>
+  <view hidden="{{ !radioGroup }}">
+    <radio-group class="group_radio" bindchange="radioChange">
+      <view class="radio_label" wx:for="{{languageCode}}" wx:key="index">
+        <radio id="{{item.value}}" hidden value="{{item.value}}" checked="{{item.checked}}"></radio>
+        <label class="label_text" for="{{item.value}}" style="color:{{item.checked ? '#558b2f': '#333'}}">
+          <text>{{item.label}}</text>
+        </label>
+      </view>
+    </radio-group>
+  </view>
+  <view class="view_image">
+    <image class="top_view_images" mode="aspectFit" src="{{imageSrc}}"></image>
+  </view>
+  <view class="view_button">
+    <van-button size="large" type="primary" bind:click="updateImage" custom-class="view_button_custom" round>上传图片</van-button>
+  </view>
+  <view>
+    <view wx:for="{{ textList }}" wx:key="index" class="bottom_view van-hairline--top">
+      <van-block title="原文">
+        <view class="bottom_view_text">{{item.context}}</view>
+      </van-block>
+      <van-block title="译文">
+        <view class="bottom_view_text">{{item.tranContent}}</view>
+      </van-block>
+    </view>
+  </view>
 </view>
