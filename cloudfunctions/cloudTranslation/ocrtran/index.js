@@ -5,7 +5,7 @@ const main = async (event, context, db, _, util, instance) => {
       from: encodeURI(event.from),
       to: encodeURI(event.to),
       appKey: encodeURI('7ee8a9ca86b8dc93'),
-      salt: encodeURI('12312321'),
+      salt: encodeURI(Date.now()),
       q: event.q
     }
     para.sign = util.youdaoSign(para)

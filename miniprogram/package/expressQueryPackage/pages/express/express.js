@@ -77,7 +77,8 @@ Page({
     }
     Toast.loading({
       mask: true,
-      message: '请稍后...'
+      message: '快马加鞭···',
+      duration: 0
     });
     wx.cloud.callFunction(callPara).then(res => {
       console.info(res)

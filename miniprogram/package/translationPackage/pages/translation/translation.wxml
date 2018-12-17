@@ -1,6 +1,7 @@
 <!-- miniprogram/package/translationPackage/pages/translation/translation.wxml -->
 <wxs module="common" src="../../../../common/translation.wxs"></wxs>
 <view>
+  <van-toast id="van-toast" />
   <view class="top_view van-hairline--bottom">
     <view class="top_view_left" bindtap="clickLeft" hover-class="top_button_hover">
       <text>{{ common.formatLang(fromLang) }}</text>
@@ -31,8 +32,13 @@
     <van-button size="large" type="primary" bind:click="updateImage" custom-class="view_button_custom" round>上传图片</van-button>
   </view>
   <view>
-    <van-panel title="标题" desc="描述信息">
-      <view>内容</view>
-    </van-panel>
+    <view wx:for="{{ textList }}" wx:key="index" class="bottom_view van-hairline--top">
+      <van-block title="原文">
+        <view class="bottom_view_text">{{item.context}}</view>
+      </van-block>
+      <van-block title="译文">
+        <view class="bottom_view_text">{{item.tranContent}}</view>
+      </van-block>
+    </view>
   </view>
 </view>

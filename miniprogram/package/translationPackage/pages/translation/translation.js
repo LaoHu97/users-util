@@ -2,6 +2,7 @@ import {
   languageCode
 } from './languageCode'
 var lr = ''
+import Toast from '../../../../miniprogram_npm/vant-weapp/toast/toast'
 
 Page({
   data: {
@@ -9,7 +10,8 @@ Page({
     imageSrc: 'https://vpssss.oss-cn-qingdao.aliyuncs.com/user-util/images/ocrtrans3.jpeg?x-oss-process=style/compression-image',
     radioGroup: false,
     fromLang: 'zh-CHS',
-    toLang: 'en'
+    toLang: 'en',
+    textList: []
   },
   clickCenter() {
     var checked = ''
@@ -87,14 +89,29 @@ Page({
         q: data
       }
     }
+    console.log(callPara);
+    
+    Toast.loading({
+      mask: true,
+      message: '快马加鞭···',
+      duration: 0
+    });
     wx.cloud.callFunction(callPara).then(res => {
       console.info(res)
+      Toast.clear()
+      this.setData({
+        textList: res.result.resRegions
+      })
+    }).catch(err => {
+      Toast.clear()
+      Toast('系统错误')
+      console.log(err)
     })
   },
   updateImage() {
     wx.chooseImage({
       count: 1,
-      sizeType: ['original'],
+      sizeType: ['compressed'],
       sourceType: ['album', 'camera'],
       success: res => {
         this.setData({
@@ -104,7 +121,6 @@ Page({
           filePath: res.tempFilePaths[0], //选择图片返回的相对路径
           encoding: 'base64', //编码格式
           success: res => { //成功的回调
-            console.log(res)
             this.updatedone(res.data)
           }
         })

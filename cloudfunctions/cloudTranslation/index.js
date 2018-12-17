@@ -8,7 +8,6 @@ cloud.init()
 
 const instance = axios.create({
   baseURL: 'http://openapi.youdao.com',
-  timeout: 50000,
   headers: {
     'Content-Type': 'application/x-www-form-urlencoded'
   },

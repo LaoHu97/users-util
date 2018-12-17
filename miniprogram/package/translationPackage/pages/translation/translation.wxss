@@ -47,3 +47,10 @@ page {
   background-color:#558b2f !important;
   border:1px solid #558b2f !important;
 }
+.bottom_view{
+  background: #fff;
+  padding: 0 0 15px 0;
+}
+.bottom_view_text{
+  padding: 0 15px;
+}
