@@ -30,9 +30,6 @@ Page({
       }
     })
   },
-  onReady() {
-    // this.getExpressHistory()
-  },
   bindClearClick() {
     this.getExpressHistory()
   },
