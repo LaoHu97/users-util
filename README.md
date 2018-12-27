@@ -1,3 +1,10 @@
+<p align="center">
+    <img alt="logo" src="https://s1.ax1x.com/2018/12/27/FRmJ8e.png" width="120" style="margin-bottom: 10px;">
+</p>
+<h3 align="center">工具象</h3>
+
+---
+
 ## 技术简介
 
 这是完全基于微信云开发所构建的小程序项目，包括：
@@ -16,8 +23,12 @@
 
 一个聚合型工具箱，基于微信小程序，目前功能比较单一，只有快递查询，拍照翻译（API接口数据来自有道翻译），后续会陆续加入更多功能并优化现有功能
 
-<p align="center">
-    <img alt="er" src="https://s1.ax1x.com/2018/12/25/FcNJzV.jpg" width="200" style="margin-bottom: 10px;">
+## 预览
+
+扫描下方小程序二维码，体验工具象：
+
+<p>
+    <img alt="er" src="https://s1.ax1x.com/2018/12/27/FRmYgH.jpg" width="200" style="margin-bottom: 10px;">
 </p>
 
 ## 结尾

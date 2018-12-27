@@ -19,7 +19,7 @@
     <radio-group class="group_radio" bindchange="radioChange">
       <view class="radio_label" wx:for="{{languageCode}}" wx:key="index">
         <radio id="{{item.value}}" hidden value="{{item.value}}" checked="{{item.checked}}"></radio>
-        <label class="label_text" for="{{item.value}}" style="color:{{item.checked ? '#558b2f': '#333'}}">
+        <label class="label_text" for="{{item.value}}" style="color:{{item.checked ? '#61a934': '#333'}}">
           <text>{{item.label}}</text>
         </label>
       </view>

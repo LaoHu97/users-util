@@ -33,22 +33,5 @@ exports.main = async (event, context) => {
       await expressQueryOrder.setSuccessOrder(ctx.body, context, db, _, util, axios)
     })
   })
-
-  // // 单号查询
-  // app.router('expressQueryOrder', async (ctx, next) => {
-  //   await next()
-  // }, async (ctx, next) => {
-  //   await next()
-  // }, async (ctx) => {
-  //   const expressQueryOrder = require('expressQueryOrder/index.js')
-  //   let c = await expressQueryOrder.querySuccessOrder(event, context, db, _, util, axios)
-  //   console.log(c);
-  //   if (c.code !== 'FAIL') {
-  //     ctx.body = c
-  //   } else {
-  //     ctx.body = await expressQueryOrder.main(event, context, db, _, util, axios)
-  //     await expressQueryOrder.setSuccessOrder(ctx.body, context, db, _, util, axios)
-  //   }
-  // })
   return app.serve()
 }

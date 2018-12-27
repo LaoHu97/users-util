@@ -50,7 +50,6 @@ Page({
     this.onQueryClick()
   },
   historyClick(item) {
-    console.log(item);
     this.setData({
       expressNumber: item.target.dataset.item.no
     }, () => {
@@ -65,7 +64,7 @@ Page({
     }
     // 调用云函数
     let callPara = {
-      name: 'index',
+      name: 'expressQuery',
       data: {
         $url: 'expressQueryOrder',
         type: this.data.expressSelech.code,
