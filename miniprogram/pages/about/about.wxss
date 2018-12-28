@@ -1,11 +1,14 @@
 /* miniprogram/pages/about/about.wxss */
+page{
+  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
 .about_view{
+  margin-bottom: 15px;
+}
+.about_view_text {
   padding: 15px;
-}
-.about_eq{
-  text-align: center;
-}
-.about_eq_image{
-  width: 220px;
-  height: 300px;
+  line-height: 1.8;
 }
