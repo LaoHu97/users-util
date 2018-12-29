@@ -1,11 +1,16 @@
 <view>
-  <view class="about_view">
-    1.目前小程序1.0.0版可能不稳定，欢迎反馈问题
-  </view>
-  <view class="about_view">
-    2.使用过程中的任何问题可到“投诉与反馈”中反应，第一时间处理解决！也可以点击下列二维码扫一扫联系作者
-  </view>
-  <view class="about_eq" bindtap="tapImage">
-    <image class="about_eq_image" mode="{{aspectFill}}" src="{{eqSrc}}"></image>
-  </view>
+  <van-panel title="v1.0.1" desc="2018-12-18" custom-class="about_view">
+    <view class="about_view_text">
+      <view>1.优化快递查询，图片翻译功能主色调</view>
+      <view>2.图片翻译页面操作优化，代码逻辑优化</view>
+      <view>3.优化版本管理功能</view>
+    </view>
+  </van-panel>
+  <van-panel title="v1.0.0" desc="2018-12-18" custom-class="about_view">
+    <view class="about_view_text">
+      <view>1.新增快递查询功能</view>
+      <view>2.新增图片拍照翻译功能</view>
+      <view>3.新增客服会话功能</view>
+    </view>
+  </van-panel>
 </view>

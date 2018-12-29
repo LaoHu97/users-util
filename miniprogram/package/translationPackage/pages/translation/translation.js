@@ -14,69 +14,59 @@ Page({
     textList: []
   },
   clickCenter() {
-    var checked = ''
+    let t = ''
     if (lr === 'l') {
-      checked = this.data.toLang
+      t = this.data.toLang
     } else {
-      checked = this.data.fromLang
+      t = this.data.fromLang
     }
-    var changed = {}
-    for (var i = 0; i < this.data.languageCode.length; i++) {
-      if (checked.indexOf(this.data.languageCode[i].value) !== -1) {
-        changed['languageCode[' + i + '].checked'] = true
-      } else {
-        changed['languageCode[' + i + '].checked'] = false
-      }
-    }
+    let changed = this.checkedIndexOf(t)
     changed.fromLang = this.data.toLang
     changed.toLang = this.data.fromLang
     this.setData(changed)
   },
   clickLeft() {
-    var checked = this.data.fromLang
-    var changed = {}
-    for (var i = 0; i < this.data.languageCode.length; i++) {
-      if (checked.indexOf(this.data.languageCode[i].value) !== -1) {
-        changed['languageCode[' + i + '].checked'] = true
-      } else {
-        changed['languageCode[' + i + '].checked'] = false
-      }
-    }
+    let changed = this.checkedIndexOf(this.data.fromLang)
     changed.radioGroup = true
     this.setData(changed)
     lr = 'l'
   },
   clickRight() {
-    var checked = this.data.toLang
-    var changed = {}
-    for (var i = 0; i < this.data.languageCode.length; i++) {
-      if (checked.indexOf(this.data.languageCode[i].value) !== -1) {
-        changed['languageCode[' + i + '].checked'] = true
-      } else {
-        changed['languageCode[' + i + '].checked'] = false
-      }
-    }
+    let changed = this.checkedIndexOf(this.data.toLang)
     changed.radioGroup = true
     this.setData(changed)
     lr = 'r'
   },
   radioChange(e) {
-    var checked = e.detail.value
-    var changed = {}
-    for (var i = 0; i < this.data.languageCode.length; i++) {
+    let changed = this.checkedIndexOf(e.detail.value)
+    if (lr === 'l') {
+      changed.fromLang = e.detail.value
+    } else {
+      changed.toLang = e.detail.value
+    }
+    changed.radioGroup = false
+    this.setData(changed)
+  },
+  checkedIndexOf(data) {
+    let checked = data
+    let changed = {}
+    for (let i = 0; i < this.data.languageCode.length; i++) {
       if (checked.indexOf(this.data.languageCode[i].value) !== -1) {
         changed['languageCode[' + i + '].checked'] = true
       } else {
         changed['languageCode[' + i + '].checked'] = false
       }
     }
-    changed.radioGroup = false
-    if (lr === 'l') {
-      changed.fromLang = checked
-    } else {
-      changed.toLang = checked
-    }
-    this.setData(changed)
+    return changed
+  },
+  // 阻止蒙层冒泡
+  preventTouchMove: function () {
+
+  },
+  maskBindTap() {
+    this.setData({
+      radioGroup: false
+    })
   },
   updatedone(data) {
     // 调用云函数
@@ -89,17 +79,16 @@ Page({
         q: data
       }
     }
-    console.log(callPara);
     wx.cloud.callFunction(callPara).then(res => {
-      console.info(res)
       Toast.clear()
+      console.log(res);
+      
       this.setData({
         textList: res.result.resRegions
       })
     }).catch(err => {
       Toast.clear()
       Toast('系统错误')
-      console.log(err)
     })
   },
   updateImage() {
@@ -121,7 +110,6 @@ Page({
           filePath: res.tempFilePaths[0], // 小程序临时文件路径
           success: res => {
             // 返回文件 ID
-            console.log(res.fileID)
             this.updatedone(res.fileID)
           },
           fail: console.error

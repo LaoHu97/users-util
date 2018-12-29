@@ -15,15 +15,18 @@
       <van-icon size="18rpx" name="https://vpssss.oss-cn-qingdao.aliyuncs.com/user-util/icons/play_fill.png?x-oss-process=style/compression-image" />
     </view>
   </view>
-  <view hidden="{{ !radioGroup }}">
-    <radio-group class="group_radio" bindchange="radioChange">
-      <view class="radio_label" wx:for="{{languageCode}}" wx:key="index">
-        <radio id="{{item.value}}" hidden value="{{item.value}}" checked="{{item.checked}}"></radio>
-        <label class="label_text" for="{{item.value}}" style="color:{{item.checked ? '#558b2f': '#333'}}">
-          <text>{{item.label}}</text>
-        </label>
-      </view>
-    </radio-group>
+  <view>
+    <view class="mask" catchtouchmove="preventTouchMove" bindtap="maskBindTap" hidden="{{ !radioGroup }}"></view>
+    <view hidden="{{ !radioGroup }}" class="view_selech">
+      <radio-group class="group_radio" bindchange="radioChange">
+        <view class="radio_label" wx:for="{{languageCode}}" wx:key="index">
+          <radio id="{{item.value}}" hidden value="{{item.value}}" checked="{{item.checked}}"></radio>
+          <label class="label_text" for="{{item.value}}" style="color:{{item.checked ? '#61a934': '#333'}}">
+            <text>{{item.label}}</text>
+          </label>
+        </view>
+      </radio-group>
+    </view>
   </view>
   <view class="view_image">
     <image class="top_view_images" mode="aspectFit" src="{{imageSrc}}"></image>
