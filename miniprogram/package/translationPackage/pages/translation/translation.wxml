@@ -37,7 +37,7 @@
   <view>
     <view wx:for="{{ textList }}" wx:key="index" class="bottom_view van-hairline--top">
       <van-block title="原文">
-        <view class="bottom_view_text">{{item.context}}</view>
+        <view class="bottom_view_text">{{item.context}}<van-icon name="volume-o" /></view>
       </van-block>
       <van-block title="译文">
         <view class="bottom_view_text">{{item.tranContent}}</view>

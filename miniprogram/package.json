@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "description": "工具集合",
   "main": "app.json",
-  "dependencies": {
-    "vant-weapp": "^0.4.10"
-  },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "vant-weapp": "^0.5.2"
+  }
 }

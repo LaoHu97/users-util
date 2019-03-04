@@ -9,8 +9,8 @@ Page({
     languageCode: languageCode,
     imageSrc: 'https://vpssss.oss-cn-qingdao.aliyuncs.com/user-util/images/shili.jpg?x-oss-process=style/compression-image',
     radioGroup: false,
-    fromLang: 'zh-CHS',
-    toLang: 'en',
+    fromLang: 'en',
+    toLang: 'zh-CHS',
     textList: []
   },
   clickCenter() {
